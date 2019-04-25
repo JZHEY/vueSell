@@ -3,7 +3,7 @@
         <cube-scroll ref="scroll">
             <div class="select-foods">
             <ul>
-                <li class="food-item" v-for="item in food" :key="item.name">
+                <li class="food-item" v-for="item in $route.params.foodList" :key="item.name">
                     <div class="icon">
                         <img width="66" height="66" :src="item.icon" alt="">
                     </div>

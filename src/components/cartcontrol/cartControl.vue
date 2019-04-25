@@ -27,9 +27,9 @@ export default {
             //console.log("111111111")
                 //this.food.count = 1 这样的变化不会被观测到
                 Vue.set(this.food,'count',1)//增加原来没有的count属性，需要先import Vue 然后使用Vue.set（）接口，这样才能检测到是个属性的数据变化
-                this.selectFoods.push(this.food)
+                /*this.selectFoods.push(this.food)
                 console.log(this.selectFoods)
-                this.$emit("listenSelectFoods",this.selectFoods)   
+                this.$emit("listenSelectFoods",this.selectFoods)   */
             }else{
                 this.food.count++
             }
@@ -37,8 +37,8 @@ export default {
         decreaseCart(){
             if(this.food.count!=0){
                 this.food.count--
-                this.selectFoods.pop()
-                this.$emit("listenSelectFoods",this.selectFoods)  
+                //this.selectFoods.pop()
+                //this.$emit("listenSelectFoods",this.selectFoods)  
             }
         }
     }

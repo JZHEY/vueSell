@@ -26,7 +26,7 @@
                                     <span class="old" v-show="food.oldPrice">¥{{food.oldPrice}}</span>
                                 </div>
                                 <div class="cartcontrol-wrapper">
-                                    <cart-control :food="food"  @listenSelectFoods="showSelectFoods"></cart-control>
+                                    <cart-control :food="food"></cart-control>
                                 </div>
                                 
                             </div>
@@ -35,7 +35,7 @@
                 </li>
             </ul>
         </div>
-        <shop-cart class="shopcart" :selectFoods="selectFoods"></shop-cart>
+        <shop-cart class="shopcart" :select-foods="selectFoods"></shop-cart>
     </div>
 </template>
 
@@ -51,7 +51,6 @@ export default {
             goods:[],
             listHeight:[],
             scrollY:0,
-            selectFoods:[]
         }
     },
     methods: {
@@ -71,11 +70,6 @@ export default {
 
             }
         },
-        showSelectFoods:function(data){
-            //console.log("从子组件获取的数据："+data)
-            this.selectFoods.push(data)
-            console.log("父组件的selectFoods"+this.selectFoods)
-        }
     },
     components: {
         shopCart,
@@ -91,6 +85,17 @@ export default {
                 }
             }
             return 0
+        },
+        selectFoods(){
+            let foods = []
+            this.goods.forEach((good) => {
+                good.foods.forEach((food) => {
+                    if(food.count) {
+                        foods.push(food)
+                    }
+                })
+            })
+            return foods
         }
     },
     created(){
