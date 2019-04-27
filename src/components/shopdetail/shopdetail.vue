@@ -27,7 +27,7 @@ export default {
     }
   },
   created(){
-    this.$http.get('api/seller').then(response => {
+    this.axios.get('api/seller').then(response => {
  
       // get body data
       this.response = response.body;

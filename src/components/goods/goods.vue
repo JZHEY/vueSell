@@ -99,7 +99,7 @@ export default {
         }
     },
     created(){
-        this.$http.get('api/goods').then(response => {
+        this.axios.get('api/goods').then(response => {
     
         // get body data
         this.response = response.body;

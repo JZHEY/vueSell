@@ -2,12 +2,14 @@ import Vue from 'vue'
 import './cube-ui'
 import App from './App.vue'
 import '@/common/stylus/index.styl'
-import VueResourse from 'vue-resource'
+//import VueResourse from 'vue-resource'
 import router from './router'
+import axios from 'axios'
 
 
 Vue.config.productionTip = false
-Vue.use(VueResourse)
+Vue.prototype.axios = axios
+//Vue.use(VueResourse)
 
 new Vue({
   router,
