@@ -6,7 +6,7 @@ import '@/common/stylus/index.styl'
 import router from './router'
 import axios from 'axios'
 
-
+require('./mock.js')
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
 //Vue.use(VueResourse)
