@@ -103,35 +103,7 @@ export default {
     }
   },
   created() {
-    /*this.axios.get('api/goods').then(response => {
-    
-        // get body data
-        this.response = response.body;
-        //console.log(this.response)
-        if(this.response.errno == ERR_OK){
-            this.goods = this.response.data;
-            //console.log(this.goods)
-            this.$nextTick(() => {
-            this.menuScroll = new Bscroll(this.$refs.menuWrapper, {
-                click :true
-            })
-            this.foodsScroll = new Bscroll(this.$refs.foodsWrapper, {
-                click :true,
-                probeType: 3
-            });
-            this._calculateHeight();
-            this.foodsScroll.on('scroll',(pos) =>{//鼠标滚动事件
-                this.scrollY = Math.abs(Math.round(pos.y));
-            });
-            });
-        }
-    
-        }, response => {
-        // error callback
-        console.log("请求失败")
-        }),*/
-
-    api.mockdata("/data/index").then(response => {
+      api.mockdata("/data/index").then(response => {
       console.log(response);
       this.goods = response[1];
       console.log(this.goods)

@@ -26,19 +26,7 @@ export default {
     };
   },
   created() {
-    /*this.axios.get('api/seller').then(response => {
- 
-      // get body data
-      this.response = response.body;
-      if(this.response.errno == ERR_OK){
-        this.seller = this.response.data;
-      }
-  
-    }, response => {
-      // error callback
-      console.log("请求失败")
-    });*/
-
+    
       api.mockdata("/data/index").then(response => {
           console.log(response);
           this.seller = response[0];
@@ -47,10 +35,10 @@ export default {
       },
       response => {
         // error callback
-        console.log("请求失败");
+        console.log("请求失败")
       }
-    );
+    )
   }
-};
+}
 </script>
 <style lang="stylus"></style>

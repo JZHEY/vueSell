@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="head-top">
-      <div class="cubeic-back"></div>
+      <div class="cubeic-back" @click="goBack"></div>
       <div class="head-title">店内点餐</div>
       <div class="cubeic-more"></div>
     </div>
@@ -29,6 +29,11 @@ export default {
   props:{
     seller:Object,
   },
+  methods:{
+    goBack(){
+      this.$router.go(-1);
+    }
+  }
 }
 </script>
 

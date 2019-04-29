@@ -94,4 +94,5 @@ export default {
         background :red
         margin :0 auto
         color :white
+        outline :none
 </style>

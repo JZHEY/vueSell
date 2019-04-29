@@ -2,7 +2,7 @@
     <div class="cart">
         <div class="left">
             <div class="num" v-show="totalCount>0">{{totalCount}}</div>
-            <img class="cart-icon" src="./cart.png" alt="" @click="showList">
+            <img class="cart-icon" src="./cart.png" width="50px" height="50px" alt="" @click="showList">
             <div class="foodprice">￥{{totalPrice}}<span class="discount">¥0</span></div>
         </div>
         <cube-button class="buy" :class="payClass" :disabled="canPay" @click="goToOrder">下单去</cube-button>

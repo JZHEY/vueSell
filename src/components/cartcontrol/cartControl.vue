@@ -53,11 +53,12 @@ export default {
         line-height :24px
         color :orange
         vertical-align:top
+        padding :5px
     .cart-count
         display :inline-block
         width :28px
         color :black
         text-align :center
-        line-height :24px
+        line-height :34px
         vertical-align:top
 </style>
