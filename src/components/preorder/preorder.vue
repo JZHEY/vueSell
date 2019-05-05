@@ -28,8 +28,8 @@
             <cube-input placeholder="给商家留言45字以内" :maxlength="maxlength"></cube-input>            
         </div>
         <div class="price">
-            <p><span>原价：</span><cube-input class="input"></cube-input></p>
-            <p><span>优惠全额：</span><cube-input class="input"></cube-input></p>
+            <p><span>原价：￥元</span></p>
+            <p><span>优惠金额：</span><cube-input class="input"></cube-input></p>
             <p><span>总计：</span><cube-input class="input"></cube-input></p>
         </div>
         </cube-scroll>
@@ -42,48 +42,6 @@ export default {
     name:'preorder',
     data(){
         return {
-            food:[
-                {"name": "皮蛋瘦肉粥",
-                "price": 10,
-                "oldPrice": "",
-                "description": "咸粥",
-                "sellCount": 229,
-                "rating": 100,
-                "info": "一碗皮蛋瘦肉粥，总是我到粥店时的不二之选。香浓软滑，饱腹暖心，皮蛋的Q弹与瘦肉的滑嫩伴着粥香溢于满口，让人喝这样的一碗粥也觉得心满意足",
-                "icon": "http://fuss10.elemecdn.com/c/cd/c12745ed8a5171e13b427dbc39401jpeg.jpeg?imageView2/1/w/114/h/114",
-                "image": "http://fuss10.elemecdn.com/c/cd/c12745ed8a5171e13b427dbc39401jpeg.jpeg?imageView2/1/w/750/h/750"
-                },
-                {"name": "皮蛋瘦肉ff粥",
-                "price": 10,
-                "oldPrice": "",
-                "description": "咸粥",
-                "sellCount": 229,
-                "rating": 100,
-                "info": "一碗皮蛋瘦肉粥，总是我到粥店时的不二之选。香浓软滑，饱腹暖心，皮蛋的Q弹与瘦肉的滑嫩伴着粥香溢于满口，让人喝这样的一碗粥也觉得心满意足",
-                "icon": "http://fuss10.elemecdn.com/c/cd/c12745ed8a5171e13b427dbc39401jpeg.jpeg?imageView2/1/w/114/h/114",
-                "image": "http://fuss10.elemecdn.com/c/cd/c12745ed8a5171e13b427dbc39401jpeg.jpeg?imageView2/1/w/750/h/750"
-                },
-                {"name": "扁豆焖面",
-                "price": 14,
-                "oldPrice": "",
-                "description": "",
-                "sellCount": 188,
-                "rating": 96,
-                "info": "",
-                "icon": "http://fuss10.elemecdn.com/c/6b/29e3d29b0db63d36f7c500bca31d8jpeg.jpeg?imageView2/1/w/114/h/114",
-                "image": "http://fuss10.elemecdn.com/c/6b/29e3d29b0db63d36f7c500bca31d8jpeg.jpeg?imageView2/1/w/750/h/750"
-                },
-                {"name": "扁dd豆焖面",
-                "price": 14,
-                "oldPrice": "",
-                "description": "",
-                "sellCount": 188,
-                "rating": 96,
-                "info": "",
-                "icon": "http://fuss10.elemecdn.com/c/6b/29e3d29b0db63d36f7c500bca31d8jpeg.jpeg?imageView2/1/w/114/h/114",
-                "image": "http://fuss10.elemecdn.com/c/6b/29e3d29b0db63d36f7c500bca31d8jpeg.jpeg?imageView2/1/w/750/h/750"
-                }
-            ],
             tableId: ["第一桌","第二桌","第三桌","第四桌","第五桌","第六桌","第七桌","第八桌","第九桌","第十桌","第十一桌","第十二桌"],
             tableNum: "第一桌",
             population:"",
@@ -91,6 +49,17 @@ export default {
             ptype:"",
             maxlength:45
         }
+    },
+    computed:{
+        totalPrice() {
+        let total = 0
+        console.log(this.$route.params.foodList)
+        //     $route.params.foodList.forEach(food => {
+        //     total += food.price * food.count
+        //     //console.log("food is "+food.length)
+        // })
+        return total
+        },
     }
 }
 </script>

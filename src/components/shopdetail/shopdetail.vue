@@ -28,9 +28,9 @@ export default {
   created() {
     
       api.mockdata("/data/index").then(response => {
-          console.log(response);
+          //console.log(response);
           this.seller = response[0];
-          console.log(this.seller)
+          //console.log(this.seller)
         //}
       },
       response => {

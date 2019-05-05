@@ -7,10 +7,13 @@
             <p>请选择正确用餐人数，小二马上给你送餐具</p>
         </div>
         <div class="number">
-            <cube-button class="btn-number" v-for="(item,index) in 12" :key="index" :light="true">{{index+1}}人</cube-button>
-            
+            <!-- <cube-button class="btn-number" v-for="(item,index) in 12" :key="index" :light="true">{{index+1}}人</cube-button> -->
+            <cube-radio-group class="selectNumber" v-model="eatNumber" :options="selectNumber1" :horizontal="true" />
+            <cube-radio-group class="selectNumber" v-model="eatNumber" :options="selectNumber2" :horizontal="true" />
+            <cube-radio-group class="selectNumber" v-model="eatNumber" :options="selectNumber3" :horizontal="true" />
             <cube-input class="taste" v-model="taste" :placeholder="placeholder"></cube-input>
-            <cube-button class="pack-bring">打包带走</cube-button><cube-button class="no-spicy">不要辣椒</cube-button><cube-button class="little-spicy">微辣</cube-button>
+            <cube-radio-group class="selectTaste" v-model="eatTaste" :options="selectTaste" :horizontal="true" />
+            <!-- <cube-button class="pack-bring">打包带走</cube-button><cube-button class="no-spicy">不要辣椒</cube-button><cube-button class="little-spicy">微辣</cube-button> -->
         </div>
         <div class="start">
             <button class="btn-start" @click="startOrder">开始点菜</button>
@@ -25,6 +28,12 @@ export default {
         return {
         taste: '',
         placeholder: '请输入你的口味要求，忌口等（可不填）',
+        selectNumber1:['1人', '2人','3人', '4人'],
+        selectNumber2:['5人', '6人','7人', '8人'],
+        selectNumber3:['9人', '10人','11人', '12人'],
+        selectTaste:['打包','不辣','微辣','中辣'],
+        eatNumber:'',
+        eatTaste:''
         }
   },
   methods:{
@@ -69,23 +78,16 @@ export default {
 .number 
     border :1px solid white
     text-align :center
-    .btn-number
-        width :20%
-        height :40px
-        float :left
-        margin-left :4%
-        margin-top :2%
+    .selectNumber
+        margin :0px 4%
     .taste
         width :92%
         margin-left :4%
-        margin-top :45%
-    .pack-bring,.no-spicy,.little-spicy
-        width :25%
-        float :left
-        margin-left :4%
         margin-top :10%
+    .selectTaste
+        margin :4% 4%
 .start
-    margin-top :7rem
+    margin-top :2rem
     .btn-start
         display:block
         border-radius:50%
