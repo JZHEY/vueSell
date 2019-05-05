@@ -9,6 +9,7 @@ import axios from 'axios'
 require('./mock.js')
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
+//Vue.prototype.test= '123'
 //Vue.use(VueResourse)
 
 new Vue({
