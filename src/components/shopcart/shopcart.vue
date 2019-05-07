@@ -12,7 +12,7 @@
     <div class="shopcart-list" v-show="isShow">
       <div class="list-header">
         <span class="header-name">购物车</span>
-        <span class="header-empty">清空</span>
+        <span class="header-empty" @click="clearAll">清空</span>
       </div>
       <div class="scroll-list-wrap">
         <ul>
@@ -94,6 +94,12 @@ export default {
       if (this.totalCount > 0) {
         this.isShow = !this.isShow
       }
+    },
+    clearAll(){
+      this.selectFoods.forEach(food => {
+        food.count = 0
+      });
+      this.isShow = false
     }
   }
 }

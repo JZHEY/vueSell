@@ -67,7 +67,6 @@ export default {
         & > span 
             line-height :35px
             margin-left :5px
-            
     & > button
         width :30%
         margin-left :35% 
