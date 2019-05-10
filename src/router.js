@@ -14,7 +14,8 @@ export default new Router({
       name: 'eatNumber',
       component: eatNumber,
       meta: {
-        title: '点餐'
+        title: '点餐',
+        keepAlive: true //设置成true之后 页面数据就不会刷新
       }
     },
     {
@@ -22,7 +23,8 @@ export default new Router({
         name: 'shopDetail',
         component: () => import(/* webpackChunkName: "about" */ '@/components/shopdetail/shopdetail.vue'),
         meta: {
-          title: '点餐'
+          title: '点餐',
+          keepAlive: true //设置成true之后 页面数据就不会刷新
         }
       },
     {
@@ -30,7 +32,8 @@ export default new Router({
       name: 'preorder',
       component: () => import(/* webpackChunkName: "about" */ '@/components/preorder/preorder.vue'),
       meta: {
-        title: '点餐'
+        title: '点餐',
+        keepAlive: true//设置成true之后 页面数据就不会刷新
       }
     },
       

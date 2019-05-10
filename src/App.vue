@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <!--<shop-detail></shop-detail>-->
-    <router-view/>
+    <!-- 保存页面状态的页面会在keep-alive中显示 -->
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <!-- 不需要保存页面状态的页面会在此显示 -->
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
