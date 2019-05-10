@@ -43,6 +43,7 @@
       </div>
     </cube-scroll>
     <div class="pay-money">
+      <cube-button ><router-link to="/shopDetail">返回</router-link></cube-button>
       <cube-button :primary="true">买单</cube-button>
     </div>
   </div>
@@ -77,20 +78,23 @@ export default {
   computed: {
     totalPrice() {
         let total = 0
-        // console.log(Window.prototype.eatNumber)
-        this.$route.params.foodList.forEach(food => {
-            total += food.price * food.count
-            //console.log("food is "+food.length)
-        })
+        if(this.$route.params.foodList){
+          this.$route.params.foodList.forEach(food => {
+              total += food.price * food.count
+          })
+        }
+        
         return total
     },
     oldTotalPrice(){
         let oldTotal = this.totalPrice
         let different = 0
-        this.$route.params.foodList.forEach(food => {
+        if(this.$route.params.foodList){
+          this.$route.params.foodList.forEach(food => {
             if(food.oldPrice>0)
                 different = different + (food.oldPrice * food.count - food.price * food.count)
-        })
+          })
+        }
         return (oldTotal + different)
     },
     discountPrice(){
@@ -99,6 +103,11 @@ export default {
         }else{
             return 0
         }
+    }
+  },
+  methods:{
+    goBack(){
+      history.back(-1)
     }
   }
 };
@@ -167,5 +176,8 @@ export default {
   .pay-money
     position :absolute
     bottom :0
+    display :inline-flex
     width :100%
+    & > button
+      width :50%
 </style>

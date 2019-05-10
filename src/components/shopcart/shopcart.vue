@@ -9,6 +9,7 @@
       </div>
     </div>
     <cube-button class="buy" :class="payClass" :disabled="canPay" @click="goToOrder">下单去</cube-button>
+    <!-- <cube-button class="buy" :class="payClass" :disabled="canPay" ><router-link to="/preorder">下单去</router-link></cube-button> -->
     <div class="shopcart-list" v-show="isShow">
       <div class="list-header">
         <span class="header-name">购物车</span>
