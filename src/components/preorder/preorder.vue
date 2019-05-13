@@ -1,47 +1,45 @@
 <template>
   <div class="scroll-list-wrap">
-    <cube-scroll ref="scroll">
-      <div class="select-foods">
-        <ul>
-          <li class="food-item" v-for="item in $route.params.foodList" :key="item.name">
-            <div class="icon">
-              <img width="66" height="66" :src="item.icon" alt>
+    <div class="select-foods">
+      <ul>
+        <li class="food-item" v-for="item in $route.params.foodList" :key="item.name">
+          <div class="icon">
+            <img width="66" height="66" :src="item.icon" alt>
+          </div>
+          <div class="content">
+            <h2 class="name">{{item.name}}</h2>
+            <p class="desc">{{item.description}}</p>
+            <div class="price">
+              <span class="now">¥{{item.price}}/份</span>
+              <span class="old" v-show="item.oldPrice">¥{{item.oldPrice}}</span>
             </div>
-            <div class="content">
-              <h2 class="name">{{item.name}}</h2>
-              <p class="desc">{{item.description}}</p>
-              <div class="price">
-                <span class="now">¥{{item.price}}/份</span>
-                <span class="old" v-show="item.oldPrice">¥{{item.oldPrice}}</span>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="select-detail">
-        <!-- <p>就餐座位</p>
-        <cube-select v-model="tableNum" :options="tableId"></cube-select>-->
-        <p>就餐人数</p>
-        <cube-input v-model="population"></cube-input>
-        <cube-select placeholder="支付方式" v-model="ptype" :options="payType"></cube-select>
-        <p>给商家留言</p>
-        <cube-input placeholder="给商家留言45字以内" :maxlength="maxlength"></cube-input>
-      </div>
-      <div class="price">
-        <p>
-            <span class="text">原价：</span>
-            <span>￥{{oldTotalPrice}}</span>
-        </p>
-        <p>
-            <span class="text">优惠金额：</span>
-            <span>￥{{discountPrice}}</span>
-        </p>
-        <p>
-            <span class="text">总计：</span>
-            <span>￥{{totalPrice}}</span>
-        </p>
-      </div>
-    </cube-scroll>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="select-detail">
+      <!-- <p>就餐座位</p>
+      <cube-select v-model="tableNum" :options="tableId"></cube-select>-->
+      <p>就餐人数</p>
+      <cube-input v-model="population"></cube-input>
+      <cube-select placeholder="支付方式" v-model="ptype" :options="payType"></cube-select>
+      <p>给商家留言</p>
+      <cube-input placeholder="给商家留言45字以内" :maxlength="maxlength"></cube-input>
+    </div>
+    <div class="price">
+      <p>
+          <span class="text">原价：</span>
+          <span>￥{{oldTotalPrice}}</span>
+      </p>
+      <p>
+          <span class="text">优惠金额：</span>
+          <span>￥{{discountPrice}}</span>
+      </p>
+      <p>
+          <span class="text">总计：</span>
+          <span>￥{{totalPrice}}</span>
+      </p>
+    </div>
     <div class="pay-money">
       <cube-button ><router-link to="/shopDetail">返回</router-link></cube-button>
       <cube-button :primary="true">买单</cube-button>
@@ -115,45 +113,44 @@ export default {
 
 <style lang="stylus" scoped>
 .scroll-list-wrap 
-  height :35rem
-  overflow :hidden
-  .food-item 
-    display: flex
-    margin: 10px
-    padding-bottom: 10px
-    border-bottom: 1px solid #cccccc
-    .icon 
-      flex: 0 0 66px
-      margin-right: 10px
-      & > img 
-        border-radius: 4px
-    .content 
-      flex: 1
-      position: relative
-      .name 
-        margin: 2px 0 8px 0
-        height: 14px
-        line-height: 14px
-        font-size: 14px
-        color: #222222
-      .desc 
-        font-size: 12px
-        color: #999999
-        line-height: 18px
-        width: 100px
-        overflow: hidden
-        white-space: nowrap
-        text-overflow: ellipsis
-      .price 
-        .now 
-          color: #EA191A
-          font-size: 16px
-          line-height: 17px
-          font-weight: 700
-        .old 
-          text-decoration: line-through
-          font-size: 10px
-          color: #666666
+  .select-foods
+    .food-item 
+      display: flex
+      margin: 10px
+      padding-bottom: 10px
+      border-bottom: 1px solid #cccccc
+      .icon 
+        flex: 0 0 66px
+        margin-right: 10px
+        & > img 
+          border-radius: 4px
+      .content 
+        flex: 1
+        position: relative
+        .name 
+          margin: 2px 0 8px 0
+          height: 14px
+          line-height: 14px
+          font-size: 14px
+          color: #222222
+        .desc 
+          font-size: 12px
+          color: #999999
+          line-height: 18px
+          width: 100px
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
+        .price 
+          .now 
+            color: #EA191A
+            font-size: 16px
+            line-height: 17px
+            font-weight: 700
+          .old 
+            text-decoration: line-through
+            font-size: 10px
+            color: #666666
   .select-detail 
     & > p 
       height: 1.5rem
